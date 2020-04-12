@@ -7,4 +7,12 @@ class User < ApplicationRecord
     validates :email, presence: true
 
     has_secure_password
+
+    def self.from_google(auth)
+        self.find_or_create_by(email: auth[:info][:email]) do |user|
+            user.username = auth.info.name
+            user.password = SecureRandom.hex
+          end
+    end
+
 end
