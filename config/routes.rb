@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#omniauth'
   
   resources :reviews
-  resources :products
+  resources :products do
+    resources :reviews, only: [:new, :index]
+  end
   resources :categories
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
