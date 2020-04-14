@@ -1,5 +1,7 @@
 <h1>Create a Product!</h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @product} %>
+
 <div>
     <%= form_for(@product) do |f| %>
         <%= f.label :name %>

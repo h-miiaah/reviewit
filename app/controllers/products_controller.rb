@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     def create
         @product = Product.new(product_params)
         @product.user_id = session[:user_id]
-        if @product.save!
+        if @product.save#!
             redirect_to product_path(@product)
         else
             @product.build_category
