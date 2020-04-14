@@ -8,6 +8,8 @@ class Product < ApplicationRecord
   
   validate :not_duplicate
 
+  scope :order_by_rating, -> {left_joins(:reviews).group(:name).order('avg(stars) desc')}
+
   def category_attributes=(attributes)
     self.category = Category.find_or_create_by(attributes) if !attributes[:name].empty?
     self.category
@@ -18,6 +20,14 @@ class Product < ApplicationRecord
     if Product.find_by(name: name, category_id: category_id)
       errors.add(:name, 'already exists in that category')
     end
+  end
+
+  def product_and_category
+    "#{name} : #{category.name}"
+  end
+
+  def self.alphabetically
+    order(:name)
   end
 
 end

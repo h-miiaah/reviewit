@@ -1,8 +1,4 @@
-<% if params[:product_id] %>
-    <h1>Write a Review for <%= @review.product.name%>!</h1>
-<% else %>
-    <h1>Write a Review!</h1>
-<% end %>
+<%= show_header(@review) %>
 
 <%= render partial: 'layouts/errors', locals: {object: @review} %>
 
@@ -13,7 +9,7 @@
         <% else %>
             <div>
             <%= f.label :product_id, "Select Product" %>
-            <%= f.collection_select :product_id, Product.all, :id, :name, include_blank: true %>
+            <%= f.collection_select :product_id, Product.all.alphabetically, :id, :product_and_category, include_blank: true %>
             </div>
         <% end %>
         <br>
@@ -29,7 +25,7 @@
         <%= f.label :content %>
         <%= f.text_area :content, size: "40x10" %>
         <br>
-        
+
         <%= f.submit 'Create Review' %>
 
     <% end %>
