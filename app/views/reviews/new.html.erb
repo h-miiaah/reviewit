@@ -8,6 +8,16 @@
 
 <div>
     <%= form_for(@review) do |f| %>
+        <% if params[:product_id] %>
+            <%= f.hidden_field :product_id %>
+        <% else %>
+            <div>
+            <%= f.label :product_id, "Select Product" %>
+            <%= f.collection_select :product_id, Product.all, :id, :name, include_blank: true %>
+            </div>
+        <% end %>
+        <br>
+
         <%= f.label :stars %>
         <%= f.number_field :stars, min: 0, max: 5 %>
         <br>
@@ -19,9 +29,7 @@
         <%= f.label :content %>
         <%= f.text_area :content, size: "40x10" %>
         <br>
-
-        <%= f.hidden_field :product_id %>
-
+        
         <%= f.submit 'Create Review' %>
 
     <% end %>
