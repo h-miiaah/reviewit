@@ -29,6 +29,7 @@ class ReviewsController < ApplicationController
     end
 
     def show
+        
     end
 
     def edit
@@ -62,5 +63,5 @@ class ReviewsController < ApplicationController
     def set_review
         @review = Review.find_by_id(params[:id])
     end
-    
+
 end

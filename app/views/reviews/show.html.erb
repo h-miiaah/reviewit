@@ -1,4 +1,7 @@
-<h1><%= @review.title %> - <%= @review.stars %> Stars</h1>
+<h1>Review for <%= @review.product.name %></h1>
+<h2><%= @review.title %> - <%= @review.stars %> Stars</h2>
+
 <div>
+    <h4>Review:</h4>
     <p><%= @review.content %></p>
 </div>
