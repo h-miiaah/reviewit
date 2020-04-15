@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 
+    before_action :set_review, only: [:show, :edit, :update, :destroy]
     before_action :require_login
 
     def index
@@ -28,19 +29,15 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        @review = Review.find_by_id(params[:id])
-
     end
 
     def edit
-        @review = Review.find_by_id(params[:id])
         if @review.user_id != current_user.id
             redirect_to reviews_path           
         end
     end
 
     def update
-        @review = Review.find_by_id(params[:id])
         if @review.user_id != current_user.id
             redirect_to reviews_path           
         end
@@ -52,7 +49,6 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        @review = Review.find_by_id(params[:id])
         @review.destroy
         redirect_to reviews_path
     end
@@ -62,4 +58,9 @@ class ReviewsController < ApplicationController
     def review_params
         params.require(:review).permit(:stars, :title, :content, :product_id)
     end
+
+    def set_review
+        @review = Review.find_by_id(params[:id])
+    end
+    
 end
