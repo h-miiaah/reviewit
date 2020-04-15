@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
 
     before_action :set_product, only: [:show, :edit, :update, :delete]
-
+    before_action :require_login
+    
     def index
         @products = Product.order_by_rating
     end
@@ -13,7 +14,7 @@ class ProductsController < ApplicationController
 
     def create
         @product = Product.new(product_params)
-        @product.user_id = session[:user_id]
+        @product.user_id = session[:user_id] #or = current_user.id
         if @product.save#!
             redirect_to product_path(@product)
         else

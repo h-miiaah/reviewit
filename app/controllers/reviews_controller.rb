@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+    before_action :require_login
+
     def index
         if @product = Product.find_by_id(params[:id])
             @reviews = @product.reviews #if it's nested
