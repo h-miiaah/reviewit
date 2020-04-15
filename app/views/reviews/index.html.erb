@@ -18,8 +18,10 @@
                 <td><%= review.title %></td>
                 <td><%= review.stars %> Stars</td>
                 <td><%= link_to 'Show', review_path(review) %></td>
+                <% if review.user_id == current_user.id %>
                 <td><%= link_to 'Edit', edit_review_path(review) %></td>
                 <td><%= link_to 'Delete', review_path(review), method: :delete %></td>
+                <% end %>
             </tr>
         <% end %>
     </tbody>
