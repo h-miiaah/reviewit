@@ -1,7 +1,15 @@
-<h1>Review for <%= @review.product.name %></h1>
-<h2><%= @review.title %> - <%= @review.stars %> Stars</h2>
+<div class="row">
+    <div class="col"></div>
+        <div class="col-md-6">
 
-<div>
-    <h4>Review:</h4>
-    <p><%= @review.content %></p>
-</div>
+            <h1>Review for <%= @review.product.name %></h1>
+            <h2><%= @review.title %> - <%= @review.stars %> Stars</h2>
+
+            <div>
+                <h4>Review:</h4>
+                <p><%= @review.content %></p>
+            </div>
+               
+        </div><!-- col-md-6 -->
+    <div class="col"></div>
+</div><!-- .row -->
