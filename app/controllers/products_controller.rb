@@ -27,7 +27,6 @@ class ProductsController < ApplicationController
     def edit
         @product = Product.find_by_id(params[:id])
         if @product.user_id != current_user.id
-            # flash[:error] = "Sorry, you can't edit this product"
             redirect_to products_path           
         end
     end
@@ -35,7 +34,6 @@ class ProductsController < ApplicationController
     def update
         @product = Product.find_by_id(params[:id])
         if @product.user_id != current_user.id
-            # flash[:error] = "Sorry, you can't edit this product"
             redirect_to products_path           
         end
         if @product.update(product_params)
