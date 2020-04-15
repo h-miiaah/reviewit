@@ -24,6 +24,34 @@ class ProductsController < ApplicationController
         @product = Product.find_by_id(params[:id])
     end
 
+    def edit
+        @product = Product.find_by_id(params[:id])
+        if @product.user_id != current_user.id
+            # flash[:error] = "Sorry, you can't edit this product"
+            redirect_to products_path           
+        end
+    end
+
+    def update
+        @product = Product.find_by_id(params[:id])
+        if @product.user_id != current_user.id
+            # flash[:error] = "Sorry, you can't edit this product"
+            redirect_to products_path           
+        end
+        if @product.update(product_params)
+            redirect_to product_path(@product)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        # byebug
+        @product = Product.find_by_id(params[:id])
+        @product.destroy
+        redirect_to products_path
+    end
+
     private
 
     def product_params

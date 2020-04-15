@@ -6,8 +6,9 @@ class Product < ApplicationRecord
 
   validates :name, :brand, :description, presence: true
   
-  validate :not_duplicate
+  # validate :not_duplicate (removed so edit option is available)
 
+  #scope method to display the products grouped by name & average rating
   scope :order_by_rating, -> {left_joins(:reviews).group(:name).order('avg(stars) desc')}
 
   def category_attributes=(attributes)
@@ -15,12 +16,12 @@ class Product < ApplicationRecord
     self.category
   end
 
-  # custom validator to check if duplicate exists in the system
-  def not_duplicate
-    if Product.find_by(name: name, category_id: category_id)
-      errors.add(:name, 'already exists in that category')
-    end
-  end
+  # custom validator to check if duplicate exists in the system (removed so edit option is available)
+  # def not_duplicate
+  #   if Product.find_by(name: name, category_id: category_id)
+  #     errors.add(:name, 'already exists in that category')
+  #   end
+  # end
 
   def product_and_category
     "#{name} : #{category.name}"

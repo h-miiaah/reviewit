@@ -1,36 +1,3 @@
 <h1>Create a Product!</h1>
 
-<%= render partial: 'layouts/errors', locals: {object: @product} %>
-
-<div>
-    <%= form_for(@product) do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <br>
-
-        <%= f.label :brand %>
-        <%= f.text_field :brand %>
-        <br>
-
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-        <br>
-
-        <div>
-            <p>Select a category that already exists: </p>
-            <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "Select Category" %>
-        </div>
-        
-        <div>
-            <p>Or create a new category: </p>
-                <%= f.fields_for :category do |c| %>
-                    <%= c.label :name %>
-                    <%= c.text_field :name %>
-                <% end %>
-        </div>
-        <br>
-
-        <%= f.submit "Create Product" %>
-
-    <% end %>
-</div>
+<%= render partial: 'form' %>
