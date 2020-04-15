@@ -27,6 +27,11 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 
+# bootstrap
+gem 'bootstrap', '~> 4.4.1'
+gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
