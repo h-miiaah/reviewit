@@ -11,7 +11,7 @@
                     <% else %>
                         <div>
                         <%= f.label :product_id, "Select Product" %>
-                        <%= f.collection_select :product_id, Product.all.alphabetically, :id, :product_and_category, include_blank: true %>
+                        <%= f.collection_select :product_id, Product.all.alphabetically, :id, :product_and_category, include_blank: true, class: 'form-control' %>
                         </div>
                     <% end %>
                     <br>

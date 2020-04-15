@@ -20,7 +20,7 @@
 
                     <div>
                         <p>Select a category that already exists: </p>
-                        <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "Select Category" %>
+                        <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "Select Category", class: 'form-control' %>
                     </div>
                     
                     <div>
