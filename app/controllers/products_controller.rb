@@ -50,6 +50,14 @@ class ProductsController < ApplicationController
         redirect_to products_path
     end
 
+    def search
+        if params[:search].blank?
+            @products = Product.all
+        else
+            @products = Product.search(params)
+        end
+    end
+
     private
 
     def product_params

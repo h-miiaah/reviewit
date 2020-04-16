@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :reviews
   resources :products do
     resources :reviews, only: [:new, :index]
+    collection do
+      get :search #enables search_products_path
+    end
   end
   resources :categories
   resources :users
