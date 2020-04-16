@@ -6,8 +6,9 @@
 
             <div>
                 <h3>Category: <%= @product.category.name %></h3>
-                <h4>Description:</h4>
+                <h5>Description:</h5>
                 <p><%= @product.description %></p>
+                <em>Created: <%= @product.created_at.strftime('%b %e, %Y %l:%M %p') %></em>
             </div>
             
         </div><!-- col-md-6 -->

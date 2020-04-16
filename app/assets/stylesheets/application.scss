@@ -13,10 +13,13 @@
  */
 @import "bootstrap";
 @import "navigation";
+@import "footer";
 
 body {
-  min-height: 75rem;
+  min-height: 50em;
   padding-top: 4.5rem;
+  background-color: #b8e0ff;
+  overflow-x: hidden;
 }
 
 .container {
@@ -29,5 +32,11 @@ body {
 }
 
 thead {
-  background-color: #dddddd;
+  background-color: #618ab0;
+  color: #ffffff;
+}
+
+.jumbotron {
+  border-radius: 10px;
+  background-color: #7cb2e4;
 }

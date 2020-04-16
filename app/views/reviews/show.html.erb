@@ -3,11 +3,12 @@
         <div class="col-md-6">
 
             <h1>Review for <%= @review.product.name %></h1>
-            <h2><%= @review.title %> - <%= @review.stars %> Stars</h2>
+            <h3><%= @review.title %> - <%= @review.stars %> Stars</h3>
 
             <div>
-                <h4>Review:</h4>
+                <h5>Review:</h5>
                 <p><%= @review.content %></p>
+                <em>Created: <%= @review.created_at.strftime('%b %e, %Y %l:%M %p') %></em>
             </div>
                
         </div><!-- col-md-6 -->
