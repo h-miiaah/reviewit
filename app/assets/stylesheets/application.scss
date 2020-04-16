@@ -12,6 +12,7 @@
  *
  */
 @import "bootstrap";
+@import "navigation";
 
 body {
   min-height: 75rem;
@@ -24,6 +25,7 @@ body {
 
 .form-control {
   background-color: #efeeef;
+  border: 1px solid #3e53a3;
 }
 
 thead {
