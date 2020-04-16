@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
                 session[:user_id] = @user.id
                 redirect_to user_path(@user)
             else
-                flash[:error] = "Sorry, the information you entered is incorrect. Pleas try again."
+                flash[:error] = "Sorry, the information you entered is incorrect. Please try again."
                 redirect_to login_path
             end
         end

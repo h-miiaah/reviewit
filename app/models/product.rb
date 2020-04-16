@@ -32,8 +32,8 @@ class Product < ApplicationRecord
   end
 
   def self.search(params)
-    products = Product.where("name LIKE ? or brand LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
-    products #returns the products containing the search params
+      products = Product.where("name LIKE ? or brand LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
+      products #returns the products containing the search params
   end
 
 end
