@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   delete '/logout' => 'sessions#destroy'
 
+  get '/products/most_reviewed' => 'products#most_reviewed'
+
   get '/auth/:provider/callback' => 'sessions#omniauth'
   
   resources :reviews

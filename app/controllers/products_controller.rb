@@ -27,6 +27,10 @@ class ProductsController < ApplicationController
         
     end
 
+    def most_reviewed
+        @product = Product.most_reviewed.first
+    end
+
     def edit
         if @product.user_id != current_user.id
             redirect_to products_path           

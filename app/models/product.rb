@@ -11,6 +11,10 @@ class Product < ApplicationRecord
   #scope method to display the products grouped by name & average rating
   scope :order_by_rating, -> {left_joins(:reviews).group(:name).order('avg(stars) desc')}
 
+  # scope :order_by_most_reviewed, -> {left_joins(:reviews).group(:stars).return('stars DESC')}
+
+  scope :most_reviewed, -> {joins(:reviews).group('reviews.product_id').order("count(reviews.product_id) desc").limit(1)}
+
   def category_attributes=(attributes)
     self.category = Category.find_or_create_by(attributes) if !attributes[:name].empty?
     self.category
